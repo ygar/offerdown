@@ -67,8 +67,8 @@ def main():
 		result = ast.literal_eval(cached_result)
 	else:
 		try:
-			items = filter_item_prices(item, city)
-			price_suggestion, item_count = calculate_mode(items)
+			prices = filter_item_prices(item, city)
+			price_suggestion, item_count = calculate_mode(prices)
 			if city is None:
 				city = "Not specified"
 			result = {"status": 200, "content":{"item": item, "item_count": item_count, "price_suggestion": price_suggestion, "city": city}}
