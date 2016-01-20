@@ -12,7 +12,11 @@ vagrant scp item-price-service offerdown:.
 
 vagrant scp redis-3.0.6 offerdown:.
 
+vagrant scp ouchallenge.jmx offerdown:.
+
 vagrant ssh
+
+sudo scp ouchallenge.jmx /usr/share/jmeter/bin
 
 
 
@@ -58,4 +62,8 @@ python item-price-service.py
 
 
 curl --request GET "http://127.0.0.1:5000/item-price-service/?item=ps4&city=Seattle"
+
+cd /usr/share/jmeter/bin
+
+sudo ./jmeter -n -t ouchallenge.jmx -l run1.jtl
 
